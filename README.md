@@ -15,7 +15,7 @@ Windows Sstp VPN install from certificate
 
 SstpVpnInstaller [IpAddress]
 
-SstpVpnInstaller [Hostname]
+SstpVpnInstaller [HostName]
 
 SstpVpnInstaller [*.crt]
 
