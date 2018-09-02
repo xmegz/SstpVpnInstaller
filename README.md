@@ -20,3 +20,5 @@ SstpVpnInstaller [HostName]
 SstpVpnInstaller [*.crt]
 
 SstpVpnInstaller [*.cer]
+
+SstpVpnInstaller [*.pem]
