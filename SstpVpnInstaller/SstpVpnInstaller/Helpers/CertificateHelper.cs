@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace SstpVpnInstaller
 {
-    public static class CertificateHelper
+    internal static class CertificateHelper
     {
         public static void Install(X509Certificate2 certificate, StoreName storeName = StoreName.Root, StoreLocation storeLocation = StoreLocation.LocalMachine)
         {

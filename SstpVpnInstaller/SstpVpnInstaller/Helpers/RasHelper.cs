@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SstpVpnInstaller
 {
-    public static class RasHelper
+    internal static class RasHelper
     {
         public static void CreateSstpVpn(string entryName, string serverName, RasPhoneBookType rasPhoneBookType = RasPhoneBookType.User, RasVpnStrategy rasVpnStrategy = RasVpnStrategy.SstpOnly)
         {

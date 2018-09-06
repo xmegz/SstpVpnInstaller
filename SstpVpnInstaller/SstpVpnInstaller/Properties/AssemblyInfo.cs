@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SstpVpnInstaller")]
-[assembly: AssemblyDescription("Create Sstp Vpn PhoneBook entry from certificate")]
+[assembly: AssemblyDescription("https://github.com/xmegz/SstpVpnInstaller")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pádár Tamás")]
 [assembly: AssemblyProduct("SstpVpnInstaller")]
@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(true)]
+[assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("22fe45dc-62ee-4ff7-b8fe-22989b4bc0e8")]
