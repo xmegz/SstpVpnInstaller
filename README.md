@@ -1,24 +1,25 @@
 # SstpVpnInstaller
-Windows Sstp VPN install from certificate
+Windows SSTP VPN install from certificate
 
 ## Function:
 
-1, Download certificate from host or open from local file system
+* Download certificate from host or open from local file system
 
-2, Display certificate
+* Display certificate
 
-3, Install certificate Root Store, Local Machine
+* Install certificate Root Store, Local Machine
 
-4, Create Sstp type PhoneBook entry with certificate canonical name
+* Create SSTP VPN type PhoneBook entry with certificate canonical name
 
 ## Usage:
 
-SstpVpnInstaller [IpAddress]
+* SstpVpnInstaller [IpAddress]
 
-SstpVpnInstaller [HostName]
+* SstpVpnInstaller [HostName]
 
-SstpVpnInstaller [*.crt]
+* SstpVpnInstaller [FileName]
 
-SstpVpnInstaller [*.cer]
+## Dependencies:
+RasDial (https://www.nuget.org/packages/DotRas.for.Win7/)
 
-SstpVpnInstaller [*.pem]
+IlMerge (https://www.nuget.org/packages/ilmerge/)
