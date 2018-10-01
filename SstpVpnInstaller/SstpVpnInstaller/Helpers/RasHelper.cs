@@ -1,6 +1,7 @@
 ﻿using System;
 using DotRas;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace SstpVpnInstaller
 {
@@ -8,19 +9,26 @@ namespace SstpVpnInstaller
     {
         public static void CreateSstpVpn(string entryName, string serverName, RasPhoneBookType rasPhoneBookType = RasPhoneBookType.User, RasVpnStrategy rasVpnStrategy = RasVpnStrategy.SstpOnly)
         {
-            var path = RasPhoneBook.GetPhoneBookPath(rasPhoneBookType);            
-            var phoneBook = new RasPhoneBook();
-            phoneBook.Open(path);
+            var path = RasPhoneBook.GetPhoneBookPath(rasPhoneBookType);
 
-            if (phoneBook.Entries.Contains(entryName))
-                throw new ArgumentException("PhoneBook entry already exist!", entryName);
+            using (var phoneBook = new RasPhoneBook())
+            {
+                phoneBook.Open(path);
 
-            var device = RasDevice.GetDevices().FirstOrDefault(d => d.Name.Contains("SSTP"));
-            var entry = RasEntry.CreateVpnEntry(entryName, serverName, rasVpnStrategy, device);
+                if (phoneBook.Entries.Contains(entryName))
+                {
+                    MessageBox.Show(entryName + " recreated!", "Phonebook", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            entry.Options.RemoteDefaultGateway = false;
+                    phoneBook.Entries.Remove(entryName);
+                }
 
-            phoneBook.Entries.Add(entry);                 
+                var device = RasDevice.GetDevices().FirstOrDefault(d => d.Name.Contains("SSTP"));
+                var entry = RasEntry.CreateVpnEntry(entryName, serverName, rasVpnStrategy, device);
+
+                //entry.Options.RemoteDefaultGateway = true;
+
+                phoneBook.Entries.Add(entry);                
+            }
         }
 
     }
