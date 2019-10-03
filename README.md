@@ -13,24 +13,8 @@ Easy Windows SSTP VPN install from certificate
 
 ## Download: [Latest](https://github.com/xmegz/SstpVpnInstaller/releases/download/v1.4.0/SstpVpnInstaller.Full.exe)
 
-## Usage:
-
-* Just rename file eg: vpn.example.com
-
-* SstpVpnInstaller (without arguments) 
-
-* SstpVpnInstaller [IpAddress]
-
-* SstpVpnInstaller [HostName]
-
-
-## Dependencies:
-RasDial (https://www.nuget.org/packages/DotRas.for.Win7/)
-
-IlMerge (https://www.nuget.org/packages/ilmerge/)
-
-## Steps
-0, Download file & rename it to target host
+## Usage
+0, Download file & Just rename it to target hostname
 
 1, Start program
 
@@ -48,3 +32,14 @@ IlMerge (https://www.nuget.org/packages/ilmerge/)
 
 ![alt text](https://raw.githubusercontent.com/xmegz/SstpVpnInstaller/master/Images/Step4.png)
 
+## Alterantive Usage
+* SstpVpnInstaller (without arguments) 
+
+* SstpVpnInstaller [IpAddress]
+
+* SstpVpnInstaller [HostName]
+
+## Dependencies:
+RasDial (https://www.nuget.org/packages/DotRas.for.Win7/)
+
+IlMerge (https://www.nuget.org/packages/ilmerge/)
