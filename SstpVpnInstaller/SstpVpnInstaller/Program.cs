@@ -129,9 +129,9 @@ namespace SstpVpnInstaller
         /// Install certificate to Root Store, Local Machine
         /// </summary>
         /// <param name="certificate">Certificate</param>
-        /// <param name="canonicalName">Canonical name of the certificate</param>
+        /// <param name="canonicalName">Canonical name of the certificate or hostname</param>
         /// <returns>Install is success?</returns>
-        private static bool InstallCertificate(X509Certificate2 certificate, out string canonicalName)
+        private static bool InstallCertificate(X509Certificate2 certificate, string[] args, out string canonicalName)
         {
             canonicalName = null;
             try
@@ -139,6 +139,10 @@ namespace SstpVpnInstaller
                 canonicalName = certificate.GetNameInfo(X509NameType.SimpleName, false);
 
                 CertificateHelper.Install(certificate);
+
+                // If its wildcard return hostname
+                if (canonicalName.StartsWith("*")) canonicalName = args[0];
+
                 return true;
             }
             catch (Exception ex)
@@ -206,7 +210,7 @@ namespace SstpVpnInstaller
             //isSuccess = DisplayCertificate(certificate);
             //if (!isSuccess) return;
 
-            isSuccess = InstallCertificate(certificate, out string hostName);
+            isSuccess = InstallCertificate(certificate, args, out string hostName);
             if (!isSuccess) return;
 
             isSuccess = CreateSstpVpn(hostName);
