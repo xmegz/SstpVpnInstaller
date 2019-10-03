@@ -1,9 +1,9 @@
 # SstpVpnInstaller
-Windows SSTP VPN install from certificate
+Easy Windows SSTP VPN install from certificate
 
 ## Function:
 
-* Download certificate from host or open from local file system
+* Download certificate from host
 
 * Install certificate Root Store, Local Machine
 
