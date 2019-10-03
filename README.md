@@ -1,19 +1,20 @@
 # SstpVpnInstaller
-Easy Windows SSTP VPN install from certificate
+
+Easy Windows SSTP VPN install from host certificate
 
 ## Function:
 
 * Download certificate from host
 
-* Install certificate Root Store, Local Machine
+* Install certificate to Root Store, Local Machine category (It doesn't matter, valid or not)
 
 * Create SSTP VPN type PhoneBook entry with certificate canonical name
 
-* Don't set default gw to vpn server
+* Don't set default gateway to host server
 
 ## Download: [Latest](https://github.com/xmegz/SstpVpnInstaller/releases/download/v1.4.0/SstpVpnInstaller.Full.exe)
 
-## Usage
+## Usage:
 0, Download file & Just rename it to target hostname
 
 1, Start program
