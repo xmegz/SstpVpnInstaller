@@ -25,7 +25,7 @@ namespace SstpVpnInstaller
                 var device = RasDevice.GetDevices().FirstOrDefault(d => d.Name.Contains("SSTP"));
                 var entry = RasEntry.CreateVpnEntry(entryName, serverName, rasVpnStrategy, device);
 
-                //entry.Options.RemoteDefaultGateway = true;
+                entry.Options.RemoteDefaultGateway = false;
 
                 phoneBook.Entries.Add(entry);                
             }

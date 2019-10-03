@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
@@ -54,6 +55,29 @@ namespace SstpVpnInstaller
         }
 
         /// <summary>
+        /// Get DNS name from Executable name
+        /// </summary>
+        /// <returns>Reolved name </returns>
+        private static string GetDnsNameFromExecutableFileName()
+        {
+            try
+            {
+                string fileName = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                fileName = fileName.Split('(')[0];
+                fileName = Path.GetFileNameWithoutExtension(fileName);
+
+                var hostEntry = Dns.GetHostEntry(fileName);
+
+                return fileName;
+                
+            }
+            catch{}
+
+            return null;
+        }
+
+
+        /// <summary>
         /// Get source agrument if not present
         /// </summary>
         /// <param name="args">Command line argments</param>
@@ -71,6 +95,15 @@ namespace SstpVpnInstaller
                 }
                 else if (args.Length < 1)
                 {
+                    var name = GetDnsNameFromExecutableFileName();
+
+                    if (name!= null)
+                    {
+                        args = new string[1];
+                        args[0] = name;
+                        return true;
+                    }
+
                     var inputHelperForm = new InputHelperForm();
                     if (inputHelperForm.ShowDialog() == DialogResult.OK)
                     {
@@ -170,8 +203,8 @@ namespace SstpVpnInstaller
             isSuccess = LoadCertificate(args, out X509Certificate2 certificate);
             if (!isSuccess) return;
 
-            isSuccess = DisplayCertificate(certificate);
-            if (!isSuccess) return;
+            //isSuccess = DisplayCertificate(certificate);
+            //if (!isSuccess) return;
 
             isSuccess = InstallCertificate(certificate, out string hostName);
             if (!isSuccess) return;
