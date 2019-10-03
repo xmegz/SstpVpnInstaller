@@ -30,6 +30,7 @@ RasDial (https://www.nuget.org/packages/DotRas.for.Win7/)
 IlMerge (https://www.nuget.org/packages/ilmerge/)
 
 ## Steps
+0, Download file & rename it to target host
 
 1, Start program
 
